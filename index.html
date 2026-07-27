@@ -7,12 +7,13 @@
 <meta name="description" content="Original acrylic paintings on canvas with fuse bead elements.">
 <meta name="robots" content="index, follow">
 <link rel="icon" href="favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 
 * { box-sizing: border-box; }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 500 900; font-display: swap; src: url('fonts/space-grotesk-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 500 900; font-display: swap; src: url('fonts/space-grotesk-latin-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 :root { color-scheme: dark; }
 html { scroll-behavior: smooth; }
 body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Space Grotesk', Arial, sans-serif; }
@@ -53,8 +54,9 @@ img { max-width: 100%; }
 .filter-btn:hover { transform: translateY(-1px); }
 .gallery-shell { margin-top: 4px; }
 .gallery { max-width: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: clamp(14px, 1.7vw, 26px); }
-.thumb { position: relative; min-width: 0; cursor: pointer; transition: transform .24s ease, filter .24s ease, box-shadow .24s ease; }
+.thumb { position: relative; min-width: 0; aspect-ratio: 1 / 1; overflow: hidden; cursor: pointer; transition: transform .24s ease, filter .24s ease, box-shadow .24s ease; }
 .thumb[hidden] { display: none !important; }
+.thumb picture { display: block; width: 100%; height: 100%; }
 .thumb img { width: 100%; height: 100%; min-height: 230px; object-fit: cover; display: block; }
 .badge, .tag { position: absolute; z-index: 2; font-weight: 900; line-height: 1; font-size: .72rem; }
 .badge { top: 10px; left: 10px; }
@@ -188,6 +190,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0117.webp 480w,
             art-web/900/ocwe0117.webp 900w,
+            art-web/1200/ocwe0117.webp 1200w,
             art-web/1600/ocwe0117.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0117.webp" loading="lazy" alt="#117 - human touch" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0117.webp">
 </picture>
@@ -199,6 +202,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0116.webp 480w,
             art-web/900/ocwe0116.webp 900w,
+            art-web/1200/ocwe0116.webp 1200w,
             art-web/1600/ocwe0116.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0116.webp" loading="lazy" alt="#116 - makuka" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0116.webp">
 </picture>
@@ -210,6 +214,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0115.webp 480w,
             art-web/900/ocwe0115.webp 900w,
+            art-web/1200/ocwe0115.webp 1200w,
             art-web/1600/ocwe0115.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0115.webp" loading="lazy" alt="#115 - vegan meat" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0115.webp">
 </picture>
@@ -221,6 +226,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0114.webp 480w,
             art-web/900/ocwe0114.webp 900w,
+            art-web/1200/ocwe0114.webp 1200w,
             art-web/1600/ocwe0114.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0114.webp" loading="lazy" alt="#114 - behold the fab" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0114.webp">
 </picture>
@@ -232,6 +238,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0113.webp 480w,
             art-web/900/ocwe0113.webp 900w,
+            art-web/1200/ocwe0113.webp 1200w,
             art-web/1600/ocwe0113.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0113.webp" loading="lazy" alt="#113 - folda" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0113.webp">
 </picture>
@@ -243,6 +250,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0112.webp 480w,
             art-web/900/ocwe0112.webp 900w,
+            art-web/1200/ocwe0112.webp 1200w,
             art-web/1600/ocwe0112.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0112.webp" loading="lazy" alt="#112 - clickbait" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0112.webp">
 </picture>
@@ -254,6 +262,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0111.webp 480w,
             art-web/900/ocwe0111.webp 900w,
+            art-web/1200/ocwe0111.webp 1200w,
             art-web/1600/ocwe0111.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0111.webp" loading="lazy" alt="#111 - always watching" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0111.webp">
 </picture>
@@ -265,6 +274,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0110.webp 480w,
             art-web/900/ocwe0110.webp 900w,
+            art-web/1200/ocwe0110.webp 1200w,
             art-web/1600/ocwe0110.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0110.webp" loading="lazy" alt="#110 - tropic local" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0110.webp">
 </picture>
@@ -276,6 +286,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0109.webp 480w,
             art-web/900/ocwe0109.webp 900w,
+            art-web/1200/ocwe0109.webp 1200w,
             art-web/1600/ocwe0109.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0109.webp" loading="lazy" alt="#109 - village cat" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0109.webp">
 </picture>
@@ -287,6 +298,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0108.webp 480w,
             art-web/900/ocwe0108.webp 900w,
+            art-web/1200/ocwe0108.webp 1200w,
             art-web/1600/ocwe0108.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0108.webp" loading="lazy" alt="#108 - bento box" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0108.webp">
 </picture>
@@ -298,6 +310,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0107.webp 480w,
             art-web/900/ocwe0107.webp 900w,
+            art-web/1200/ocwe0107.webp 1200w,
             art-web/1600/ocwe0107.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0107.webp" loading="lazy" alt="#107 - statement." decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0107.webp">
 </picture>
@@ -309,6 +322,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0106.webp 480w,
             art-web/900/ocwe0106.webp 900w,
+            art-web/1200/ocwe0106.webp 1200w,
             art-web/1600/ocwe0106.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0106.webp" loading="lazy" alt="#106 - soon" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0106.webp">
 </picture>
@@ -320,6 +334,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0105.webp 480w,
             art-web/900/ocwe0105.webp 900w,
+            art-web/1200/ocwe0105.webp 1200w,
             art-web/1600/ocwe0105.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0105.webp" loading="lazy" alt="#105 - blip" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0105.webp">
 </picture>
@@ -331,6 +346,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0104.webp 480w,
             art-web/900/ocwe0104.webp 900w,
+            art-web/1200/ocwe0104.webp 1200w,
             art-web/1600/ocwe0104.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0104.webp" loading="lazy" alt="#104 - he lost more than that" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0104.webp">
 </picture>
@@ -342,6 +358,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0103.webp 480w,
             art-web/900/ocwe0103.webp 900w,
+            art-web/1200/ocwe0103.webp 1200w,
             art-web/1600/ocwe0103.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0103.webp" loading="lazy" alt="#103 - you have arrived at your destination" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0103.webp">
 </picture>
@@ -353,6 +370,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0102.webp 480w,
             art-web/900/ocwe0102.webp 900w,
+            art-web/1200/ocwe0102.webp 1200w,
             art-web/1600/ocwe0102.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0102.webp" loading="lazy" alt="#102 - initiate the cool" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0102.webp">
 </picture>
@@ -364,6 +382,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0101.webp 480w,
             art-web/900/ocwe0101.webp 900w,
+            art-web/1200/ocwe0101.webp 1200w,
             art-web/1600/ocwe0101.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0101.webp" loading="lazy" alt="#101 - loop" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0101.webp">
 </picture>
@@ -375,6 +394,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0100.webp 480w,
             art-web/900/ocwe0100.webp 900w,
+            art-web/1200/ocwe0100.webp 1200w,
             art-web/1600/ocwe0100.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0100.webp" loading="lazy" alt="#100 - bass" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0100.webp">
 </picture>
@@ -386,6 +406,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0099.webp 480w,
             art-web/900/ocwe0099.webp 900w,
+            art-web/1200/ocwe0099.webp 1200w,
             art-web/1600/ocwe0099.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0099.webp" loading="lazy" alt="#99 - 污染" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0099.webp">
 </picture>
@@ -397,6 +418,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0098.webp 480w,
             art-web/900/ocwe0098.webp 900w,
+            art-web/1200/ocwe0098.webp 1200w,
             art-web/1600/ocwe0098.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0098.webp" loading="lazy" alt="#98 - evolve" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0098.webp">
 </picture>
@@ -408,6 +430,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0097.webp 480w,
             art-web/900/ocwe0097.webp 900w,
+            art-web/1200/ocwe0097.webp 1200w,
             art-web/1600/ocwe0097.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0097.webp" loading="lazy" alt="#97 - outside" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0097.webp">
 </picture>
@@ -419,6 +442,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0096.webp 480w,
             art-web/900/ocwe0096.webp 900w,
+            art-web/1200/ocwe0096.webp 1200w,
             art-web/1600/ocwe0096.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0096.webp" loading="lazy" alt="#96 - call" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0096.webp">
 </picture>
@@ -430,6 +454,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0095.webp 480w,
             art-web/900/ocwe0095.webp 900w,
+            art-web/1200/ocwe0095.webp 1200w,
             art-web/1600/ocwe0095.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0095.webp" loading="lazy" alt="#95 - future" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0095.webp">
 </picture>
@@ -441,6 +466,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0094.webp 480w,
             art-web/900/ocwe0094.webp 900w,
+            art-web/1200/ocwe0094.webp 1200w,
             art-web/1600/ocwe0094.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0094.webp" loading="lazy" alt="#94 - lajosmizse" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0094.webp">
 </picture>
@@ -452,6 +478,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0093.webp 480w,
             art-web/900/ocwe0093.webp 900w,
+            art-web/1200/ocwe0093.webp 1200w,
             art-web/1600/ocwe0093.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0093.webp" loading="lazy" alt="#93 - 腹泻" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0093.webp">
 </picture>
@@ -463,6 +490,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0092.webp 480w,
             art-web/900/ocwe0092.webp 900w,
+            art-web/1200/ocwe0092.webp 1200w,
             art-web/1600/ocwe0092.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0092.webp" loading="lazy" alt="#92 - nope" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0092.webp">
 </picture>
@@ -474,6 +502,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0091.webp 480w,
             art-web/900/ocwe0091.webp 900w,
+            art-web/1200/ocwe0091.webp 1200w,
             art-web/1600/ocwe0091.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0091.webp" loading="lazy" alt="#91 - shake dat" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0091.webp">
 </picture>
@@ -485,6 +514,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0090.webp 480w,
             art-web/900/ocwe0090.webp 900w,
+            art-web/1200/ocwe0090.webp 1200w,
             art-web/1600/ocwe0090.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0090.webp" loading="lazy" alt="#90 - huzzah" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0090.webp">
 </picture>
@@ -496,6 +526,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0089.webp 480w,
             art-web/900/ocwe0089.webp 900w,
+            art-web/1200/ocwe0089.webp 1200w,
             art-web/1600/ocwe0089.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0089.webp" loading="lazy" alt="#89 - dpic of man" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0089.webp">
 </picture>
@@ -507,6 +538,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0088.webp 480w,
             art-web/900/ocwe0088.webp 900w,
+            art-web/1200/ocwe0088.webp 1200w,
             art-web/1600/ocwe0088.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0088.webp" loading="lazy" alt="#88 - new home" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0088.webp">
 </picture>
@@ -518,6 +550,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0087.webp 480w,
             art-web/900/ocwe0087.webp 900w,
+            art-web/1200/ocwe0087.webp 1200w,
             art-web/1600/ocwe0087.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0087.webp" loading="lazy" alt="#87 - what&#x27;s in the machine" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0087.webp">
 </picture>
@@ -529,6 +562,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0086.webp 480w,
             art-web/900/ocwe0086.webp 900w,
+            art-web/1200/ocwe0086.webp 1200w,
             art-web/1600/ocwe0086.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0086.webp" loading="lazy" alt="#86 - not found" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0086.webp">
 </picture>
@@ -540,6 +574,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0085.webp 480w,
             art-web/900/ocwe0085.webp 900w,
+            art-web/1200/ocwe0085.webp 1200w,
             art-web/1600/ocwe0085.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0085.webp" loading="lazy" alt="#85 - 4 step program" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0085.webp">
 </picture>
@@ -551,6 +586,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0084.webp 480w,
             art-web/900/ocwe0084.webp 900w,
+            art-web/1200/ocwe0084.webp 1200w,
             art-web/1600/ocwe0084.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0084.webp" loading="lazy" alt="#84 - one among us" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0084.webp">
 </picture>
@@ -562,6 +598,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0083.webp 480w,
             art-web/900/ocwe0083.webp 900w,
+            art-web/1200/ocwe0083.webp 1200w,
             art-web/1600/ocwe0083.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0083.webp" loading="lazy" alt="#83 - ezt nem" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0083.webp">
 </picture>
@@ -573,6 +610,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0082.webp 480w,
             art-web/900/ocwe0082.webp 900w,
+            art-web/1200/ocwe0082.webp 1200w,
             art-web/1600/ocwe0082.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0082.webp" loading="lazy" alt="#82 - check engine" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0082.webp">
 </picture>
@@ -584,6 +622,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0081.webp 480w,
             art-web/900/ocwe0081.webp 900w,
+            art-web/1200/ocwe0081.webp 1200w,
             art-web/1600/ocwe0081.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0081.webp" loading="lazy" alt="#81 - oh what now..." decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0081.webp">
 </picture>
@@ -595,6 +634,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0080.webp 480w,
             art-web/900/ocwe0080.webp 900w,
+            art-web/1200/ocwe0080.webp 1200w,
             art-web/1600/ocwe0080.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0080.webp" loading="lazy" alt="#80 - louder!!" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0080.webp">
 </picture>
@@ -606,6 +646,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0079.webp 480w,
             art-web/900/ocwe0079.webp 900w,
+            art-web/1200/ocwe0079.webp 1200w,
             art-web/1600/ocwe0079.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0079.webp" loading="lazy" alt="#79 - click click flash" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0079.webp">
 </picture>
@@ -617,6 +658,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0078.webp 480w,
             art-web/900/ocwe0078.webp 900w,
+            art-web/1200/ocwe0078.webp 1200w,
             art-web/1600/ocwe0078.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0078.webp" loading="lazy" alt="#78 - not important" decoding="async" width="2252" height="2094" data-full-image="art-web/1600/ocwe0078.webp">
 </picture>
@@ -628,6 +670,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0077.webp 480w,
             art-web/900/ocwe0077.webp 900w,
+            art-web/1200/ocwe0077.webp 1200w,
             art-web/1600/ocwe0077.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0077.webp" loading="lazy" alt="#77 - incoming" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0077.webp">
 </picture>
@@ -639,6 +682,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0076.webp 480w,
             art-web/900/ocwe0076.webp 900w,
+            art-web/1200/ocwe0076.webp 1200w,
             art-web/1600/ocwe0076.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0076.webp" loading="lazy" alt="#76 - csepel" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0076.webp">
 </picture>
@@ -650,6 +694,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0075.webp 480w,
             art-web/900/ocwe0075.webp 900w,
+            art-web/1200/ocwe0075.webp 1200w,
             art-web/1600/ocwe0075.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0075.webp" loading="lazy" alt="#75 - no really" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0075.webp">
 </picture>
@@ -661,6 +706,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0074.webp 480w,
             art-web/900/ocwe0074.webp 900w,
+            art-web/1200/ocwe0074.webp 1200w,
             art-web/1600/ocwe0074.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0074.webp" loading="lazy" alt="#74 - whoa" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0074.webp">
 </picture>
@@ -672,6 +718,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0073.webp 480w,
             art-web/900/ocwe0073.webp 900w,
+            art-web/1200/ocwe0073.webp 1200w,
             art-web/1600/ocwe0073.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0073.webp" loading="lazy" alt="#73 - demon kitty" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0073.webp">
 </picture>
@@ -683,6 +730,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0072.webp 480w,
             art-web/900/ocwe0072.webp 900w,
+            art-web/1200/ocwe0072.webp 1200w,
             art-web/1600/ocwe0072.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0072.webp" loading="lazy" alt="#72 - skibidi" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0072.webp">
 </picture>
@@ -694,6 +742,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0071.webp 480w,
             art-web/900/ocwe0071.webp 900w,
+            art-web/1200/ocwe0071.webp 1200w,
             art-web/1600/ocwe0071.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0071.webp" loading="lazy" alt="#71 - fomo" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0071.webp">
 </picture>
@@ -705,6 +754,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0070.webp 480w,
             art-web/900/ocwe0070.webp 900w,
+            art-web/1200/ocwe0070.webp 1200w,
             art-web/1600/ocwe0070.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0070.webp" loading="lazy" alt="#70 - bad pup" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0070.webp">
 </picture>
@@ -716,6 +766,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0069.webp 480w,
             art-web/900/ocwe0069.webp 900w,
+            art-web/1200/ocwe0069.webp 1200w,
             art-web/1600/ocwe0069.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0069.webp" loading="lazy" alt="#69 - friend" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0069.webp">
 </picture>
@@ -727,6 +778,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0068.webp 480w,
             art-web/900/ocwe0068.webp 900w,
+            art-web/1200/ocwe0068.webp 1200w,
             art-web/1600/ocwe0068.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0068.webp" loading="lazy" alt="#68 - find steve!" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0068.webp">
 </picture>
@@ -738,6 +790,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0067.webp 480w,
             art-web/900/ocwe0067.webp 900w,
+            art-web/1200/ocwe0067.webp 1200w,
             art-web/1600/ocwe0067.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0067.webp" loading="lazy" alt="#67 - sus corp" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0067.webp">
 </picture>
@@ -749,6 +802,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0066.webp 480w,
             art-web/900/ocwe0066.webp 900w,
+            art-web/1200/ocwe0066.webp 1200w,
             art-web/1600/ocwe0066.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0066.webp" loading="lazy" alt="#66 - only forward" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0066.webp">
 </picture>
@@ -760,6 +814,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0065.webp 480w,
             art-web/900/ocwe0065.webp 900w,
+            art-web/1200/ocwe0065.webp 1200w,
             art-web/1600/ocwe0065.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0065.webp" loading="lazy" alt="#65 - twosixism" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0065.webp">
 </picture>
@@ -771,6 +826,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0064.webp 480w,
             art-web/900/ocwe0064.webp 900w,
+            art-web/1200/ocwe0064.webp 1200w,
             art-web/1600/ocwe0064.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0064.webp" loading="lazy" alt="#64 - tick tock block" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0064.webp">
 </picture>
@@ -782,6 +838,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0063.webp 480w,
             art-web/900/ocwe0063.webp 900w,
+            art-web/1200/ocwe0063.webp 1200w,
             art-web/1600/ocwe0063.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0063.webp" loading="lazy" alt="#63 - you&#x27;re in charge" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0063.webp">
 </picture>
@@ -793,6 +850,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0062.webp 480w,
             art-web/900/ocwe0062.webp 900w,
+            art-web/1200/ocwe0062.webp 1200w,
             art-web/1600/ocwe0062.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0062.webp" loading="lazy" alt="#62 - spray the rainbow" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0062.webp">
 </picture>
@@ -804,6 +862,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0061.webp 480w,
             art-web/900/ocwe0061.webp 900w,
+            art-web/1200/ocwe0061.webp 1200w,
             art-web/1600/ocwe0061.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0061.webp" loading="lazy" alt="#61 - i love your smile" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0061.webp">
 </picture>
@@ -815,6 +874,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0060.webp 480w,
             art-web/900/ocwe0060.webp 900w,
+            art-web/1200/ocwe0060.webp 1200w,
             art-web/1600/ocwe0060.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0060.webp" loading="lazy" alt="#60 - not rickroll" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0060.webp">
 </picture>
@@ -826,6 +886,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0059.webp 480w,
             art-web/900/ocwe0059.webp 900w,
+            art-web/1200/ocwe0059.webp 1200w,
             art-web/1600/ocwe0059.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0059.webp" loading="lazy" alt="#59 - clank clank" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0059.webp">
 </picture>
@@ -837,6 +898,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0058.webp 480w,
             art-web/900/ocwe0058.webp 900w,
+            art-web/1200/ocwe0058.webp 1200w,
             art-web/1600/ocwe0058.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0058.webp" loading="lazy" alt="#58 - m.k." decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0058.webp">
 </picture>
@@ -848,6 +910,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0057.webp 480w,
             art-web/900/ocwe0057.webp 900w,
+            art-web/1200/ocwe0057.webp 1200w,
             art-web/1600/ocwe0057.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0057.webp" loading="lazy" alt="#57 - feeding time" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0057.webp">
 </picture>
@@ -859,6 +922,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0056.webp 480w,
             art-web/900/ocwe0056.webp 900w,
+            art-web/1200/ocwe0056.webp 1200w,
             art-web/1600/ocwe0056.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0056.webp" loading="lazy" alt="#56 - haiyaaah" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0056.webp">
 </picture>
@@ -870,6 +934,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0055.webp 480w,
             art-web/900/ocwe0055.webp 900w,
+            art-web/1200/ocwe0055.webp 1200w,
             art-web/1600/ocwe0055.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0055.webp" loading="lazy" alt="#55 - mener leser" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0055.webp">
 </picture>
@@ -881,6 +946,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0054.webp 480w,
             art-web/900/ocwe0054.webp 900w,
+            art-web/1200/ocwe0054.webp 1200w,
             art-web/1600/ocwe0054.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0054.webp" loading="lazy" alt="#54 - bpny" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0054.webp">
 </picture>
@@ -892,6 +958,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0053.webp 480w,
             art-web/900/ocwe0053.webp 900w,
+            art-web/1200/ocwe0053.webp 1200w,
             art-web/1600/ocwe0053.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0053.webp" loading="lazy" alt="#53 - so pretty" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0053.webp">
 </picture>
@@ -903,6 +970,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0052.webp 480w,
             art-web/900/ocwe0052.webp 900w,
+            art-web/1200/ocwe0052.webp 1200w,
             art-web/1600/ocwe0052.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0052.webp" loading="lazy" alt="#52 - vas &amp; varázs" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0052.webp">
 </picture>
@@ -914,6 +982,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0051.webp 480w,
             art-web/900/ocwe0051.webp 900w,
+            art-web/1200/ocwe0051.webp 1200w,
             art-web/1600/ocwe0051.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0051.webp" loading="lazy" alt="#51 - watch the head!" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0051.webp">
 </picture>
@@ -925,6 +994,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0050.webp 480w,
             art-web/900/ocwe0050.webp 900w,
+            art-web/1200/ocwe0050.webp 1200w,
             art-web/1600/ocwe0050.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0050.webp" loading="lazy" alt="#50 - a-holes" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0050.webp">
 </picture>
@@ -937,6 +1007,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0049.webp 480w,
             art-web/900/ocwe0049.webp 900w,
+            art-web/1200/ocwe0049.webp 1200w,
             art-web/1600/ocwe0049.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0049.webp" loading="lazy" alt="#49 - get f&#x27;d" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0049.webp">
 </picture>
@@ -949,6 +1020,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0048.webp 480w,
             art-web/900/ocwe0048.webp 900w,
+            art-web/1200/ocwe0048.webp 1200w,
             art-web/1600/ocwe0048.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0048.webp" loading="lazy" alt="#48 - no access" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0048.webp">
 </picture>
@@ -960,6 +1032,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0047.webp 480w,
             art-web/900/ocwe0047.webp 900w,
+            art-web/1200/ocwe0047.webp 1200w,
             art-web/1600/ocwe0047.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0047.webp" loading="lazy" alt="#47 - exit" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0047.webp">
 </picture>
@@ -971,6 +1044,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0046.webp 480w,
             art-web/900/ocwe0046.webp 900w,
+            art-web/1200/ocwe0046.webp 1200w,
             art-web/1600/ocwe0046.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0046.webp" loading="lazy" alt="#46 - please go home" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0046.webp">
 </picture>
@@ -982,6 +1056,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0045.webp 480w,
             art-web/900/ocwe0045.webp 900w,
+            art-web/1200/ocwe0045.webp 1200w,
             art-web/1600/ocwe0045.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0045.webp" loading="lazy" alt="#45 - city boi" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0045.webp">
 </picture>
@@ -993,6 +1068,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0044.webp 480w,
             art-web/900/ocwe0044.webp 900w,
+            art-web/1200/ocwe0044.webp 1200w,
             art-web/1600/ocwe0044.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0044.webp" loading="lazy" alt="#44 - no questions" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0044.webp">
 </picture>
@@ -1004,6 +1080,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0043.webp 480w,
             art-web/900/ocwe0043.webp 900w,
+            art-web/1200/ocwe0043.webp 1200w,
             art-web/1600/ocwe0043.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0043.webp" loading="lazy" alt="#43 - pantry" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0043.webp">
 </picture>
@@ -1015,6 +1092,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0042.webp 480w,
             art-web/900/ocwe0042.webp 900w,
+            art-web/1200/ocwe0042.webp 1200w,
             art-web/1600/ocwe0042.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0042.webp" loading="lazy" alt="#42 - sausage backwards" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0042.webp">
 </picture>
@@ -1026,6 +1104,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0041.webp 480w,
             art-web/900/ocwe0041.webp 900w,
+            art-web/1200/ocwe0041.webp 1200w,
             art-web/1600/ocwe0041.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0041.webp" loading="lazy" alt="#41 - eror jr." decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0041.webp">
 </picture>
@@ -1037,6 +1116,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0040.webp 480w,
             art-web/900/ocwe0040.webp 900w,
+            art-web/1200/ocwe0040.webp 1200w,
             art-web/1600/ocwe0040.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0040.webp" loading="lazy" alt="#40 - bee" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0040.webp">
 </picture>
@@ -1048,6 +1128,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0039.webp 480w,
             art-web/900/ocwe0039.webp 900w,
+            art-web/1200/ocwe0039.webp 1200w,
             art-web/1600/ocwe0039.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0039.webp" loading="lazy" alt="#39 - dj appreciation" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0039.webp">
 </picture>
@@ -1059,6 +1140,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0038.webp 480w,
             art-web/900/ocwe0038.webp 900w,
+            art-web/1200/ocwe0038.webp 1200w,
             art-web/1600/ocwe0038.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0038.webp" loading="lazy" alt="#38 - solution" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0038.webp">
 </picture>
@@ -1070,6 +1152,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0037.webp 480w,
             art-web/900/ocwe0037.webp 900w,
+            art-web/1200/ocwe0037.webp 1200w,
             art-web/1600/ocwe0037.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0037.webp" loading="lazy" alt="#37 - massively unimpressed – Deep Frame" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0037.webp">
 </picture>
@@ -1081,6 +1164,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0036.webp 480w,
             art-web/900/ocwe0036.webp 900w,
+            art-web/1200/ocwe0036.webp 1200w,
             art-web/1600/ocwe0036.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0036.webp" loading="lazy" alt="#36 - 厕所" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0036.webp">
 </picture>
@@ -1092,6 +1176,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0035.webp 480w,
             art-web/900/ocwe0035.webp 900w,
+            art-web/1200/ocwe0035.webp 1200w,
             art-web/1600/ocwe0035.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0035.webp" loading="lazy" alt="#35 - pacitalism" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0035.webp">
 </picture>
@@ -1103,6 +1188,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0034.webp 480w,
             art-web/900/ocwe0034.webp 900w,
+            art-web/1200/ocwe0034.webp 1200w,
             art-web/1600/ocwe0034.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0034.webp" loading="lazy" alt="#34 - cats amirite?" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0034.webp">
 </picture>
@@ -1114,6 +1200,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0033.webp 480w,
             art-web/900/ocwe0033.webp 900w,
+            art-web/1200/ocwe0033.webp 1200w,
             art-web/1600/ocwe0033.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0033.webp" loading="lazy" alt="#33 - so edgy" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0033.webp">
 </picture>
@@ -1125,6 +1212,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0032.webp 480w,
             art-web/900/ocwe0032.webp 900w,
+            art-web/1200/ocwe0032.webp 1200w,
             art-web/1600/ocwe0032.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0032.webp" loading="lazy" alt="#32 - balzac jr." decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0032.webp">
 </picture>
@@ -1136,6 +1224,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0031.webp 480w,
             art-web/900/ocwe0031.webp 900w,
+            art-web/1200/ocwe0031.webp 1200w,
             art-web/1600/ocwe0031.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0031.webp" loading="lazy" alt="#31 - shoot" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0031.webp">
 </picture>
@@ -1147,6 +1236,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0030.webp 480w,
             art-web/900/ocwe0030.webp 900w,
+            art-web/1200/ocwe0030.webp 1200w,
             art-web/1600/ocwe0030.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0030.webp" loading="lazy" alt="#30 - air" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0030.webp">
 </picture>
@@ -1158,6 +1248,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0029.webp 480w,
             art-web/900/ocwe0029.webp 900w,
+            art-web/1200/ocwe0029.webp 1200w,
             art-web/1600/ocwe0029.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0029.webp" loading="lazy" alt="#29 - göd" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0029.webp">
 </picture>
@@ -1169,6 +1260,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0028.webp 480w,
             art-web/900/ocwe0028.webp 900w,
+            art-web/1200/ocwe0028.webp 1200w,
             art-web/1600/ocwe0028.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0028.webp" loading="lazy" alt="#28 - dad?" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0028.webp">
 </picture>
@@ -1180,6 +1272,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0027.webp 480w,
             art-web/900/ocwe0027.webp 900w,
+            art-web/1200/ocwe0027.webp 1200w,
             art-web/1600/ocwe0027.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0027.webp" loading="lazy" alt="#27 - waiting is cool" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0027.webp">
 </picture>
@@ -1191,6 +1284,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0026.webp 480w,
             art-web/900/ocwe0026.webp 900w,
+            art-web/1200/ocwe0026.webp 1200w,
             art-web/1600/ocwe0026.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0026.webp" loading="lazy" alt="#26 - omg kanagawa" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0026.webp">
 </picture>
@@ -1202,6 +1296,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0025.webp 480w,
             art-web/900/ocwe0025.webp 900w,
+            art-web/1200/ocwe0025.webp 1200w,
             art-web/1600/ocwe0025.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0025.webp" loading="lazy" alt="#25 - angry sun" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0025.webp">
 </picture>
@@ -1213,6 +1308,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0024.webp 480w,
             art-web/900/ocwe0024.webp 900w,
+            art-web/1200/ocwe0024.webp 1200w,
             art-web/1600/ocwe0024.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0024.webp" loading="lazy" alt="#24 - sic transit gloria mundi" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0024.webp">
 </picture>
@@ -1224,6 +1320,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0023.webp 480w,
             art-web/900/ocwe0023.webp 900w,
+            art-web/1200/ocwe0023.webp 1200w,
             art-web/1600/ocwe0023.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0023.webp" loading="lazy" alt="#23 - tribefellaz" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0023.webp">
 </picture>
@@ -1235,6 +1332,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0022.webp 480w,
             art-web/900/ocwe0022.webp 900w,
+            art-web/1200/ocwe0022.webp 1200w,
             art-web/1600/ocwe0022.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0022.webp" loading="lazy" alt="#22 - spaceloft" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0022.webp">
 </picture>
@@ -1246,6 +1344,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0021.webp 480w,
             art-web/900/ocwe0021.webp 900w,
+            art-web/1200/ocwe0021.webp 1200w,
             art-web/1600/ocwe0021.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0021.webp" loading="lazy" alt="#21 - in the beninging" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0021.webp">
 </picture>
@@ -1257,6 +1356,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0020.webp 480w,
             art-web/900/ocwe0020.webp 900w,
+            art-web/1200/ocwe0020.webp 1200w,
             art-web/1600/ocwe0020.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0020.webp" loading="lazy" alt="#20 - excite" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0020.webp">
 </picture>
@@ -1268,6 +1368,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0019.webp 480w,
             art-web/900/ocwe0019.webp 900w,
+            art-web/1200/ocwe0019.webp 1200w,
             art-web/1600/ocwe0019.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0019.webp" loading="lazy" alt="#19 - llama" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0019.webp">
 </picture>
@@ -1279,6 +1380,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0018.webp 480w,
             art-web/900/ocwe0018.webp 900w,
+            art-web/1200/ocwe0018.webp 1200w,
             art-web/1600/ocwe0018.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0018.webp" loading="lazy" alt="#18 - bo0bsplosion" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0018.webp">
 </picture>
@@ -1290,6 +1392,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0017.webp 480w,
             art-web/900/ocwe0017.webp 900w,
+            art-web/1200/ocwe0017.webp 1200w,
             art-web/1600/ocwe0017.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0017.webp" loading="lazy" alt="#17 - 3 cats" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0017.webp">
 </picture>
@@ -1301,6 +1404,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0016.webp 480w,
             art-web/900/ocwe0016.webp 900w,
+            art-web/1200/ocwe0016.webp 1200w,
             art-web/1600/ocwe0016.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0016.webp" loading="lazy" alt="#16 - skifree" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0016.webp">
 </picture>
@@ -1312,6 +1416,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0015.webp 480w,
             art-web/900/ocwe0015.webp 900w,
+            art-web/1200/ocwe0015.webp 1200w,
             art-web/1600/ocwe0015.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0015.webp" loading="lazy" alt="#15 - go now" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0015.webp">
 </picture>
@@ -1323,6 +1428,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0014.webp 480w,
             art-web/900/ocwe0014.webp 900w,
+            art-web/1200/ocwe0014.webp 1200w,
             art-web/1600/ocwe0014.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0014.webp" loading="lazy" alt="#14 - laika" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0014.webp">
 </picture>
@@ -1334,6 +1440,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0013.webp 480w,
             art-web/900/ocwe0013.webp 900w,
+            art-web/1200/ocwe0013.webp 1200w,
             art-web/1600/ocwe0013.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0013.webp" loading="lazy" alt="#13 - pew" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0013.webp">
 </picture>
@@ -1345,6 +1452,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0012.webp 480w,
             art-web/900/ocwe0012.webp 900w,
+            art-web/1200/ocwe0012.webp 1200w,
             art-web/1600/ocwe0012.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0012.webp" loading="lazy" alt="#12 - workers&#x27; bathroom" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0012.webp">
 </picture>
@@ -1356,6 +1464,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0011.webp 480w,
             art-web/900/ocwe0011.webp 900w,
+            art-web/1200/ocwe0011.webp 1200w,
             art-web/1600/ocwe0011.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0011.webp" loading="lazy" alt="#11 - less" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0011.webp">
 </picture>
@@ -1367,6 +1476,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0010.webp 480w,
             art-web/900/ocwe0010.webp 900w,
+            art-web/1200/ocwe0010.webp 1200w,
             art-web/1600/ocwe0010.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0010.webp" loading="lazy" alt="#10 - the hipsterminator" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0010.webp">
 </picture>
@@ -1378,6 +1488,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0009.webp 480w,
             art-web/900/ocwe0009.webp 900w,
+            art-web/1200/ocwe0009.webp 1200w,
             art-web/1600/ocwe0009.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0009.webp" loading="lazy" alt="#9 - dayum" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0009.webp">
 </picture>
@@ -1389,6 +1500,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0008.webp 480w,
             art-web/900/ocwe0008.webp 900w,
+            art-web/1200/ocwe0008.webp 1200w,
             art-web/1600/ocwe0008.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0008.webp" loading="lazy" alt="#8 - smell" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0008.webp">
 </picture>
@@ -1400,6 +1512,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0007.webp 480w,
             art-web/900/ocwe0007.webp 900w,
+            art-web/1200/ocwe0007.webp 1200w,
             art-web/1600/ocwe0007.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0007.webp" loading="lazy" alt="#7 - balzac" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0007.webp">
 </picture>
@@ -1411,6 +1524,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0006.webp 480w,
             art-web/900/ocwe0006.webp 900w,
+            art-web/1200/ocwe0006.webp 1200w,
             art-web/1600/ocwe0006.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0006.webp" loading="lazy" alt="#6 - wsl" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0006.webp">
 </picture>
@@ -1422,6 +1536,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0005.webp 480w,
             art-web/900/ocwe0005.webp 900w,
+            art-web/1200/ocwe0005.webp 1200w,
             art-web/1600/ocwe0005.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0005.webp" loading="lazy" alt="#5 - helo" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0005.webp">
 </picture>
@@ -1433,6 +1548,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0004.webp 480w,
             art-web/900/ocwe0004.webp 900w,
+            art-web/1200/ocwe0004.webp 1200w,
             art-web/1600/ocwe0004.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0004.webp" loading="lazy" alt="#4 – denied" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0004.webp">
 </picture>
@@ -1444,6 +1560,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0003.webp 480w,
             art-web/900/ocwe0003.webp 900w,
+            art-web/1200/ocwe0003.webp 1200w,
             art-web/1600/ocwe0003.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0003.webp" loading="lazy" alt="#03 - hawk tuah" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0003.webp">
 </picture>
@@ -1455,6 +1572,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0002.webp 480w,
             art-web/900/ocwe0002.webp 900w,
+            art-web/1200/ocwe0002.webp 1200w,
             art-web/1600/ocwe0002.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0002.webp" loading="lazy" alt="#2 - eror" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0002.webp">
 </picture>
@@ -1466,6 +1584,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 <picture>
   <source type="image/webp" srcset="art-web/480/ocwe0001.webp 480w,
             art-web/900/ocwe0001.webp 900w,
+            art-web/1200/ocwe0001.webp 1200w,
             art-web/1600/ocwe0001.webp 1600w" sizes="(max-width: 520px) calc(100vw - 22px), (max-width: 900px) 50vw, 340px">
   <img src="art-web/900/ocwe0001.webp" loading="lazy" alt="#1 – errm what" decoding="async" width="2252" height="2252" data-full-image="art-web/1600/ocwe0001.webp">
 </picture>
@@ -1514,6 +1633,18 @@ const thumbs = document.querySelectorAll('.thumb');
 const count = document.querySelector('.filter-count');
 let modalItems = [];
 let modalIndex = -1;
+
+thumbs.forEach(thumb => {
+  thumb.setAttribute('role', 'button');
+  thumb.setAttribute('tabindex', '0');
+  thumb.setAttribute('aria-label', `Open artwork ${thumb.dataset.title}`);
+  thumb.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openModal(thumb);
+    }
+  });
+});
 
 function normalizedDesc(el) {
   return (el.dataset.desc || '').toLowerCase().replace(/\s+/g, '');
