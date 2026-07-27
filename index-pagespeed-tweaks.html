@@ -1,0 +1,1041 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OkayCoolWowEtc - Mixed Media Art</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Original acrylic paintings on canvas with fuse bead elements.">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+
+* { box-sizing: border-box; }
+:root { color-scheme: dark; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-height: 100vh; overflow-x: hidden; font-family: 'Space Grotesk', Arial, sans-serif; }
+body.modal-open { overflow: hidden; }
+button, a { font: inherit; }
+img { max-width: 100%; }
+.animated-bg { position: fixed; inset: 0; z-index: -2; pointer-events: none; overflow: hidden; }
+.animated-bg::before, .animated-bg::after { content: ''; position: absolute; inset: -30%; }
+.site-header { width: min(1480px, calc(100% - 36px)); margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 22px 0 16px; text-align: center; }
+.logo-link { display: inline-flex; align-items: center; justify-content: center; }
+.logo-link img { width: 1000px; max-width: calc(100vw - 32px); height: auto; display: block; filter: drop-shadow(0 18px 28px rgba(0,0,0,.32)); }
+.hero-copy { margin-top: 12px; }
+.hero-copy p { margin: 0; }
+.hero-line { color: rgba(244,238,226,.82); font-size: clamp(.98rem, 1.5vw, 1.22rem); font-weight: 700; }
+.hero-cta { display: inline-flex; margin-top: 7px; color: #fcc446; font-size: clamp(1rem, 1.55vw, 1.28rem); font-weight: 900; text-decoration: none; }
+.hero-cta:hover { color: #f4eee2; }
+.hero-socials { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 14px; }
+.hero-socials a { width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; transition: transform .16s ease, opacity .16s ease; }
+.hero-socials a:hover { transform: translateY(-2px) scale(1.08); opacity: .82; }
+.hero-socials img { width: 18px; height: 18px; object-fit: contain; }
+.exhibitions, .filter-panel, .gallery-shell, .contact-block { width: min(1680px, calc(100% - 32px)); margin-left: auto; margin-right: auto; }
+.exhibitions { width: min(980px, calc(100% - 32px)); padding: 2px 0 20px; }
+.exhibition-head { display: flex; align-items: center; justify-content: flex-start; gap: 14px; margin-bottom: 10px; }
+.exhibition-head span { font-size: .82rem; font-weight: 900; text-transform: uppercase; letter-spacing: .16em; }
+.exhibition-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.exhibition-card { min-height: 96px; padding: 16px; }
+.exhibition-card h2 { margin: 9px 0 6px; font-size: clamp(1rem, 1.5vw, 1.35rem); letter-spacing: 0; }
+.exhibition-card a { color: inherit; text-decoration: none; }
+.exhibition-card a:hover { color: #fcc446; }
+.exhibition-date { display: block; margin-top: 7px; color: rgba(244,238,226,.68); font-size: .86rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.status { display: inline-flex; min-height: 24px; align-items: center; padding: 5px 9px; font-size: .68rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.filter-panel { padding: 8px 0 20px; }
+.filter-line { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.filter-count { white-space: nowrap; font-size: .78rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.filters { display: flex; flex-wrap: wrap; gap: 9px; }
+.filter-btn { min-height: 38px; min-width: 64px; padding: 9px 14px; border: 0; cursor: pointer; font-size: .82rem; font-weight: 800; transition: transform .16s ease, background .16s ease, color .16s ease, border-color .16s ease; }
+.filter-btn[data-filter="all"] { font-weight: 1000; min-width: 76px; }
+.filter-btn:hover { transform: translateY(-1px); }
+.gallery-shell { margin-top: 4px; }
+.gallery { max-width: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: clamp(14px, 1.7vw, 26px); }
+.thumb { position: relative; min-width: 0; cursor: pointer; transition: transform .24s ease, filter .24s ease, box-shadow .24s ease; }
+.thumb[hidden] { display: none !important; }
+.thumb img { width: 100%; height: 100%; min-height: 230px; object-fit: cover; display: block; }
+.badge, .tag { position: absolute; z-index: 2; font-weight: 900; line-height: 1; font-size: .72rem; }
+.badge { top: 10px; left: 10px; }
+.tag { right: 10px; bottom: 10px; }
+.contact-block { padding: 42px 0 22px; text-align: center; }
+.contact-main { display: inline-flex; align-items: center; justify-content: center; min-height: 82px; padding: 22px 64px; text-decoration: none; font-size: clamp(1.12rem, 2vw, 1.55rem); font-weight: 1000; letter-spacing: .12em; }
+.socials { display: grid; grid-template-columns: repeat(4, minmax(126px, 1fr)); gap: 10px; max-width: 820px; margin: 30px auto 0; }
+.socials a { min-height: 52px; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-weight: 900; font-size: .9rem; }
+.socials img { width: 23px; height: 23px; object-fit: contain; }
+footer { padding: 20px 20px 18px; text-align: center; font-size: .72rem; }
+.modal { display: none; position: fixed; inset: 0; z-index: 1000; align-items: center; justify-content: center; padding: 22px; background: rgba(9,8,7,.68); backdrop-filter: blur(14px); }
+.modal-content { position: relative; width: auto; max-width: 96vw; max-height: 92vh; display: grid; grid-template-columns: auto minmax(280px, 380px); gap: 0; overflow: visible; padding: 0; align-items: stretch; }
+.modal-art { position: relative; display: flex; align-items: stretch; justify-content: flex-end; min-height: 0; padding: 0; }
+.modal-content img { width: auto; height: auto; max-width: min(68vw, 760px); max-height: 82vh; object-fit: contain; display: block; filter: drop-shadow(0 22px 42px rgba(0,0,0,.42)); }
+.modal-nav { position: absolute; top: 0; bottom: 0; z-index: 3; width: clamp(58px, 8vw, 104px); border: 0; outline: 0; box-shadow: none; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; color: rgba(244,238,226,.88); background: linear-gradient(90deg, rgba(0,0,0,.32), rgba(0,0,0,0)); transition: opacity .18s ease, color .18s ease, transform .18s ease; }
+.modal-nav.prev { left: 0; }
+.modal-nav.next { right: 0; background: linear-gradient(270deg, rgba(0,0,0,.32), rgba(0,0,0,0)); }
+.modal-art:hover .modal-nav, .modal-nav:focus-visible { opacity: 1; outline: 0; box-shadow: none; }
+.modal-nav:focus, .modal-nav:active { outline: 0; box-shadow: none; }
+.modal-nav:hover { color: #fcc446; transform: scaleX(1.08); }
+.modal-nav svg { width: clamp(34px, 4vw, 58px); height: min(46vh, 190px); display: block; overflow: visible; }
+.modal-nav polyline { fill: none; stroke: currentColor; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.modal-text { padding: clamp(22px, 3vw, 38px); display: flex; flex-direction: column; justify-content: center; }
+.modal-text h2 { margin: 0 0 12px; font-size: clamp(1.45rem, 2.8vw, 3rem); line-height: 1.02; letter-spacing: 0; }
+.modal-text p { margin: 0; line-height: 1.5; }
+.modal-text a { width: fit-content; margin-top: 22px; min-height: 44px; display: inline-flex; align-items: center; padding: 12px 16px; text-decoration: none; font-weight: 1000; }
+.modal-close { position: absolute; top: 12px; right: 12px; z-index: 4; min-height: 34px; padding: 7px 11px; border: 0; cursor: pointer; font-size: .76rem; font-weight: 1000; text-transform: uppercase; letter-spacing: .08em; }
+@media (max-width: 860px) { .site-header { padding-top: 18px; } .exhibition-list, .socials, .modal-content { grid-template-columns: 1fr; } .gallery { grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); } .thumb img { min-height: 170px; } .modal { padding: 12px; } .modal-content { width: min(96vw, 680px); overflow: auto; } .modal-art { min-height: auto; } .modal-content img { width: 100%; max-width: 100%; max-height: 62vh; } .modal-nav { display: none; } }
+@media (max-width: 520px) { .exhibitions, .filter-panel, .gallery-shell, .contact-block, .site-header { width: min(100% - 22px, 1680px); } .logo-link img { max-width: calc(100vw - 22px); } .hero-copy { margin-top: 9px; } .hero-socials { margin-top: 11px; } .filter-line { margin-bottom: 8px; } .filters { display: flex; flex-wrap: wrap; gap: 6px; overflow: visible; padding-bottom: 0; } .filter-btn { min-width: 48px; font-size: .66rem; min-height: 29px; padding: 5px 8px; } .filter-btn[data-filter="all"] { min-width: 56px; } .gallery { grid-template-columns: 1fr; gap: 18px; } .socials a span { display: none; } .socials { grid-template-columns: repeat(4, 1fr); margin-top: 24px; } .socials a { min-width: 0; } }
+
+body.signal-wall { color: #f4eee2; background: #100d12; }
+.signal-wall .animated-bg { background: radial-gradient(circle at 18% 22%, rgba(245,76,92,.26), transparent 30%), radial-gradient(circle at 78% 18%, rgba(41,185,161,.22), transparent 28%), radial-gradient(circle at 64% 78%, rgba(252,196,70,.17), transparent 34%), linear-gradient(145deg, #100d12 0%, #201421 38%, #0d2630 76%, #100d12 100%); }
+.signal-wall .animated-bg::before { background: conic-gradient(from 0deg at 50% 45%, rgba(245,76,92,.36), transparent 18%, rgba(120,72,255,.22), transparent 34%, rgba(41,185,161,.3), transparent 52%, rgba(252,196,70,.22), transparent 70%, rgba(245,76,92,.32)); filter: blur(30px); opacity: .95; animation: slowTurn 34s linear infinite; }
+.signal-wall .animated-bg::after { background-image: linear-gradient(rgba(255,255,255,.075) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px), repeating-linear-gradient(116deg, transparent 0 58px, rgba(245,76,92,.11) 58px 60px, transparent 60px 112px), repeating-linear-gradient(28deg, transparent 0 96px, rgba(41,185,161,.09) 96px 98px, transparent 98px 170px); background-size: 78px 78px, 78px 78px, 230px 230px, 320px 320px; opacity: .52; animation: gridSlide 26s ease-in-out infinite alternate; }
+@keyframes slowTurn { to { transform: rotate(360deg); } }
+@keyframes gridSlide { to { transform: translate3d(38px, -24px, 0) rotate(1deg); } }
+.signal-wall .exhibition-head span { color: #fcc446; }
+.signal-wall .exhibition-card { background: rgba(244,238,226,.08); border: 1px solid rgba(244,238,226,.18); border-left: 6px solid #fcc446; color: #f4eee2; box-shadow: 0 18px 42px rgba(0,0,0,.16); }
+.signal-wall .exhibition-card.current { border-left-color: #29b9a1; }
+.signal-wall .status { background: rgba(244,238,226,.12); color: #f4eee2; }
+.signal-wall .current .status { background: #29b9a1; color: #111; }
+.signal-wall .filter-count { color: #fcc446; }
+.signal-wall .filter-btn { color: #f4eee2; background: rgba(244,238,226,.08); border: 1px solid rgba(244,238,226,.2); border-radius: 2px; }
+.signal-wall .filter-btn.active { background: #f54c5c; border-color: #f54c5c; color: white; }
+.signal-wall .thumb { padding: 7px; background: #080706; box-shadow: 10px 10px 0 rgba(245,76,92,.32), 0 22px 50px rgba(0,0,0,.28); transform: rotate(var(--tilt, 0deg)); }
+.signal-wall .thumb:nth-child(3n) { --tilt: .35deg; } .signal-wall .thumb:nth-child(4n) { --tilt: -.45deg; }
+.signal-wall .thumb:hover { transform: translateY(-7px) rotate(0deg); box-shadow: 10px 10px 0 rgba(41,185,161,.36), 0 28px 60px rgba(0,0,0,.34); }
+.signal-wall .badge { background: #f54c5c; color: #fff; padding: 8px 10px; box-shadow: 3px 3px 0 #080706; }
+.signal-wall .tag { background: #fcc446; color: #15100d; padding: 8px 10px; }
+.signal-wall .contact-main { background: #f4eee2; color: #17110f; box-shadow: 6px 6px 0 #f54c5c; }
+.signal-wall .socials a { color: #f4eee2; background: rgba(244,238,226,.1); border: 1px solid rgba(244,238,226,.2); }
+.signal-wall .socials a:hover { background: #29b9a1; color: #101010; }
+.signal-wall footer { color: rgba(244,238,226,.38); }
+.signal-wall .modal-content { background: transparent; border: 0; box-shadow: none; }
+.signal-wall .modal-art { background: transparent; border: 0; }
+.signal-wall .modal-text { background: rgba(16,12,20,.8); border: 0; box-shadow: 0 24px 70px rgba(0,0,0,.32); backdrop-filter: blur(10px); }
+.signal-wall .modal-text a { background: #fcc446; color: #111; box-shadow: 4px 4px 0 #f54c5c; }
+.signal-wall .modal-close { background: rgba(244,238,226,.92); color: #111; }
+
+</style>
+</head>
+<body class="signal-wall">
+<div class="animated-bg" aria-hidden="true"></div>
+<header class="site-header">
+  <a class="logo-link" href="index.html" aria-label="Okay Cool Wow Etc."><img  src="logo/ocwe_h_t.png" alt="OCWE Logo" width="1000" height="169" decoding="async" fetchpriority="high"></a>
+  <div class="hero-copy">
+    <p class="hero-line">Mixed media art from Budapest, Hungary</p>
+    <a class="hero-cta" href="mailto:okaycoolwowetc@gmail.com">Let me know if you want one, new or existing!</a>
+    <div class="hero-socials" aria-label="Social links">
+      <a href="https://www.instagram.com/okaycoolwowetc/" target="_blank" aria-label="Instagram" rel="noopener noreferrer"><img  src="social/insta.png" alt="Instagram" width="36" height="36" decoding="async"></a>
+      <a href="https://www.facebook.com/okaycoolwowetc" target="_blank" aria-label="Facebook" rel="noopener noreferrer"><img  src="social/fb.png" alt="Facebook" width="36" height="36" decoding="async"></a>
+      <a href="https://bsky.app/profile/okaycoolwowetc.com" target="_blank" aria-label="Bluesky" rel="noopener noreferrer"><img  src="social/bsky.png" alt="Bluesky" width="36" height="36" decoding="async"></a>
+      <a href="https://ko-fi.com/okaycoolwowetc" target="_blank" aria-label="Ko-Fi" rel="noopener noreferrer"><img  src="social/kofi.png" alt="Ko-Fi" width="36" height="36" decoding="async"></a>
+    </div>
+  </div>
+</header>
+
+<section class="exhibitions" id="exhibitions" aria-label="Exhibition">
+  <div class="exhibition-head">
+    <span>Exhibitions</span>
+  </div>
+  <div class="exhibition-list">
+    <article class="exhibition-card past">
+      <h2>Manyi Kulturális Műhely</h2>
+      <span class="exhibition-date">2026 June</span>
+    </article>
+    <article class="exhibition-card past">
+      <h2>Roots Budapest</h2>
+      <span class="exhibition-date">2026 February</span>
+    </article>
+  </div>
+</section>
+<section class="filter-panel" aria-label="Artwork filters">
+  <div class="filter-line"><span class="filter-count">114 pieces</span></div>
+  <div class="filters">
+      <button class="filter-btn active" type="button" data-filter="all">ALL</button>
+      <button class="filter-btn" type="button" data-filter="7025">70x25</button>
+      <button class="filter-btn" type="button" data-filter="2570">25x70</button>
+      <button class="filter-btn" type="button" data-filter="6040">60x40</button>
+      <button class="filter-btn" type="button" data-filter="4060">40x60</button>
+      <button class="filter-btn" type="button" data-filter="6030">60x30</button>
+      <button class="filter-btn" type="button" data-filter="3060">30x60</button>
+      <button class="filter-btn" type="button" data-filter="5030">50x30</button>
+      <button class="filter-btn" type="button" data-filter="3050">30x50</button>
+      <button class="filter-btn" type="button" data-filter="5020">50x20</button>
+      <button class="filter-btn" type="button" data-filter="2050">20x50</button>
+      <button class="filter-btn" type="button" data-filter="3040">30x40</button>
+      <button class="filter-btn" type="button" data-filter="3030">30x30</button>
+      <button class="filter-btn" type="button" data-filter="4030">40x30</button>
+      <button class="filter-btn" type="button" data-filter="o30">⌀ 30</button>
+      <button class="filter-btn" type="button" data-filter="3020">30x20</button>
+      <button class="filter-btn" type="button" data-filter="2040">20x40</button>
+      <button class="filter-btn" type="button" data-filter="2030">20x30</button>
+      <button class="filter-btn" type="button" data-filter="20">20x20</button>
+      <button class="filter-btn" type="button" data-filter="1824">18x24</button>
+      <button class="filter-btn" type="button" data-filter="1530">15x30</button>
+      <button class="filter-btn" type="button" data-filter="3015">30x15</button>
+      <button class="filter-btn" type="button" data-filter="15">15x15</button>
+      <button class="filter-btn" type="button" data-filter="2010">20x10</button>
+      <button class="filter-btn" type="button" data-filter="1020">10x20</button>
+      <button class="filter-btn" type="button" data-filter="10">10x10</button>
+      <button class="filter-btn" type="button" data-filter="fan">fan</button>
+  </div>
+</section>
+<main class="gallery-shell">
+<div class="gallery">
+
+<!-- 117 -->
+<div class="thumb" data-tag="15" data-title="#117 - human touch" data-desc="15x15 cm, acrylic, chrome marker + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">15x15 cm</span>
+<img  src="art/ocwe0117.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#117 - human touch">
+</div>
+
+<!-- 116 -->
+<div class="thumb" data-tag="15" data-title="#116 - makuka" data-desc="15x15 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">15x15 cm</span>
+<img  src="art/ocwe0116.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#116 - makuka">
+</div>
+
+<!-- 115 -->
+<div class="thumb" data-tag="15" data-title="#115 - vegan meat" data-desc="15x15 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">15x15 cm</span>
+<img  src="art/ocwe0115.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#115 - vegan meat">
+</div>
+
+<!-- 114 -->
+<div class="thumb" data-tag="fan" data-title="#114 - behold the fab" data-desc="fan, acrylic, glitter" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">fan</span>
+<img  src="art/ocwe0114.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#114 - behold the fab">
+</div>
+
+<!-- 113 -->
+<div class="thumb" data-tag="3060" data-title="#113 - folda" data-desc="30x60 cm, acrylic, chrome marker + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">30x60 cm</span>
+<img  src="art/ocwe0113.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#113 - folda">
+</div>
+
+<!-- 112 -->
+<div class="thumb" data-tag="6030" data-title="#112 - clickbait" data-desc="60x30 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">60x30 cm</span>
+<img  src="art/ocwe0112.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#112 - clickbait">
+</div>
+
+<!-- 111 -->
+<div class="thumb" data-tag="1020" data-title="#111 - always watching" data-desc="10x20 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">10x20 cm</span>
+<img  src="art/ocwe0111.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#111 - always watching">
+</div>
+
+<!-- 110 -->
+<div class="thumb" data-tag="20" data-title="#110 - tropic local" data-desc="20x20 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">20x20 cm</span>
+<img  src="art/ocwe0110.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#110 - tropic local">
+</div>
+
+<!-- 109 -->
+<div class="thumb" data-tag="1020" data-title="#109 - village cat" data-desc="10x20 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">10x20 cm</span>
+<img  src="art/ocwe0109.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#109 - village cat">
+</div>
+
+<!-- 108 -->
+<div class="thumb" data-tag="2010" data-title="#108 - bento box" data-desc="20x10 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">20x10 cm</span>
+<img  src="art/ocwe0108.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#108 - bento box">
+</div>
+
+<!-- 107 -->
+<div class="thumb" data-tag="20" data-title="#107 - statement." data-desc="20x20 cm, acrylic, marker + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">STOLEN</span><span class="tag">20x20 cm</span>
+<img  src="art/ocwe0107.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#107 - statement.">
+</div>
+
+<!-- 106 -->
+<div class="thumb" data-tag="2570" data-title="#106 - soon" data-desc="25x70 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">25x70 cm</span>
+<img  src="art/ocwe0106.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#106 - soon">
+</div>
+
+<!-- 105 -->
+<div class="thumb" data-tag="7025" data-title="#105 - blip" data-desc="70x25 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">70x25 cm</span>
+<img  src="art/ocwe0105.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#105 - blip">
+</div>
+
+<!-- 104 -->
+<div class="thumb" data-tag="3040" data-title="#104 - he lost more than that" data-desc="30x40 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">30x40 cm</span>
+<img  src="art/ocwe0104.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#104 - he lost more than that">
+</div>
+
+<!-- 103 -->
+<div class="thumb" data-tag="3040" data-title="#103 - you have arrived at your destination" data-desc="30x40 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">30x40 cm</span>
+<img  src="art/ocwe0103.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#103 - you have arrived at your destination">
+</div>
+
+<!-- 102 -->
+<div class="thumb" data-tag="fan" data-title="#102 - initiate the cool" data-desc="fan, acrylic" onclick="openModal(this)">
+<span class="tag">fan</span>
+<img  src="art/ocwe0102.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#102 - initiate the cool">
+</div>
+
+<!-- 101 -->
+<div class="thumb" data-tag="4030" data-title="#101 - loop" data-desc="40x30 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">40x30 cm</span>
+<img  src="art/ocwe0101.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#101 - loop">
+</div>
+
+<!-- 100 -->
+<div class="thumb" data-tag="2010" data-title="#100 - bass" data-desc="20x10 cm, acrylic, glitter + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">20x10 cm</span>
+<img  src="art/ocwe0100.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#100 - bass">
+</div>
+
+<!-- 99 -->
+<div class="thumb" data-tag="20" data-title="#99 - 污染" data-desc="20x20 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">20x20 cm</span>
+<img  src="art/ocwe0099.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#99 - 污染">
+</div>
+
+<!-- 98 -->
+<div class="thumb" data-tag="5020" data-title="#98 - evolve" data-desc="50x20 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">50x20 cm</span>
+<img  src="art/ocwe0098.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#98 - evolve">
+</div>
+
+<!-- 97 -->
+<div class="thumb" data-tag="6040" data-title="#97 - outside" data-desc="60x40 cm, acrylic, marker + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">60x40 cm</span>
+<img  src="art/ocwe0097.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#97 - outside">
+</div>
+
+<!-- 96 -->
+<div class="thumb" data-tag="3050" data-title="#96 - call" data-desc="30x50 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">30x50 cm</span>
+<img  src="art/ocwe0096.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#96 - call">
+</div>
+
+<!-- 95 -->
+<div class="thumb" data-tag="2050" data-title="#95 - future" data-desc="20x50 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">20x50 cm</span>
+<img  src="art/ocwe0095.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#95 - future">
+</div>
+
+<!-- 94 -->
+<div class="thumb" data-tag="5030" data-title="#94 - lajosmizse" data-desc="50x30 cm, acrylic, glitter + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">50x30 cm</span>
+<img  src="art/ocwe0094.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#94 - lajosmizse">
+</div>
+
+<!-- 93 -->
+<div class="thumb" data-tag="2030" data-title="#93 - 腹泻" data-desc="20x30 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">20x30 cm</span>
+<img  src="art/ocwe0093.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#93 - 腹泻">
+</div>
+
+<!-- 92 -->
+<div class="thumb" data-tag="5020" data-title="#92 - nope" data-desc="50x20 cm, acrylic (with phosphorescent) + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">50x20 cm</span>
+<img  src="art/ocwe0092.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#92 - nope">
+</div>
+
+<!-- 91 -->
+<div class="thumb" data-tag="2030" data-title="#91 - shake dat" data-desc="20x30 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">20x30 cm</span>
+<img  src="art/ocwe0091.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#91 - shake dat">
+</div>
+
+<!-- 90 -->
+<div class="thumb" data-tag="3020" data-title="#90 - huzzah" data-desc="30x20 cm, acrylic, glitter + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">30x20 cm</span>
+<img  src="art/ocwe0090.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#90 - huzzah">
+</div>
+
+<!-- 89 -->
+<div class="thumb" data-tag="20" data-title="#89 - dpic of man" data-desc="20x20 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">20x20 cm</span>
+<img  src="art/ocwe0089.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#89 - dpic of man">
+</div>
+
+<!-- 88 -->
+<div class="thumb" data-tag="6040" data-title="#88 - new home" data-desc="60x40 cm, acrylic, glitter + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">60x40 cm</span>
+<img  src="art/ocwe0088.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#88 - new home">
+</div>
+
+<!-- 87 -->
+<div class="thumb" data-tag="4060" data-title="#87 - what's in the machine" data-desc="40x60 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">40x60 cm</span>
+<img  src="art/ocwe0087.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#87 - what&apos;s in the machine">
+</div>
+
+<!-- 86 -->
+<div class="thumb" data-tag="10" data-title="#86 - not found" data-desc="10x10 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0086.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#86 - not found">
+</div>
+
+<!-- 85 -->
+<div class="thumb" data-tag="10" data-title="#85 - 4 step program" data-desc="10x10 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0085.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#85 - 4 step program">
+</div>
+
+<!-- 84 -->
+<div class="thumb" data-tag="10" data-title="#84 - one among us" data-desc="10x10 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0084.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#84 - one among us">
+</div>
+
+<!-- 83 -->
+<div class="thumb" data-tag="10" data-title="#83 - ezt nem" data-desc="10x10 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0083.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#83 - ezt nem">
+</div>
+
+<!-- 82 -->
+<div class="thumb" data-tag="10" data-title="#82 - check engine" data-desc="10x10 cm, acrylic + fuse beads (glow in the dark) on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0082.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#82 - check engine">
+</div>
+
+<!-- 81 -->
+<div class="thumb" data-tag="20" data-title="#81 - oh what now..." data-desc="20x20 cm, acrylic (glow in the dark) + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">20x20 cm</span>
+<img  src="art/ocwe0081.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#81 - oh what now...">
+</div>
+
+<!-- 80 -->
+<div class="thumb" data-tag="20" data-title="#80 - louder!!" data-desc="20x20 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">20x20 cm</span>
+<img  src="art/ocwe0080.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#80 - louder!!">
+</div>
+
+<!-- 79 -->
+<div class="thumb" data-tag="20" data-title="#79 - click click flash" data-desc="20x20 cm, acrylic + fuse beads (glow in the dark) on canvas" onclick="openModal(this)">
+<span class="tag">20x20 cm</span>
+<img  src="art/ocwe0079.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#79 - click click flash">
+</div>
+
+<!-- 78 -->
+<div class="thumb" data-tag="3060" data-title="#78 - not important" data-desc="30x60 cm, acrylic (glow in the dark), glitter + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">30x60 cm</span>
+<img  src="art/ocwe0078.jpg" loading="lazy" width="2252" height="2094" decoding="async" alt="#78 - not important">
+</div>
+
+<!-- 77 -->
+<div class="thumb" data-tag="6030" data-title="#77 - incoming" data-desc="60x30 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">60x30 cm</span>
+<img  src="art/ocwe0077.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#77 - incoming">
+</div>
+
+<!-- 76 -->
+<div class="thumb" data-tag="10" data-title="#76 - csepel" data-desc="10x10 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">10x10cm</span>
+<img  src="art/ocwe0076.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#76 - csepel">
+</div>
+
+<!-- 75 -->
+<div class="thumb" data-tag="10" data-title="#75 - no really" data-desc="10x10 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0075.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#75 - no really">
+</div>
+
+<!-- 74 -->
+<div class="thumb" data-tag="10" data-title="#74 - whoa" data-desc="10x10 cm, acrylic w/ glitter + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0074.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#74 - whoa">
+</div>
+
+<!-- 73 -->
+<div class="thumb" data-tag="10" data-title="#73 - demon kitty" data-desc="10x10 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0073.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#73 - demon kitty">
+</div>
+
+<!-- 72 -->
+<div class="thumb" data-tag="20" data-title="#72 - skibidi" data-desc="20x20 cm, acrylic, marker + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">20x20 cm</span>
+<img  src="art/ocwe0072.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#72 - skibidi">
+</div>
+
+<!-- 71 -->
+<div class="thumb" data-tag="20" data-title="#71 - fomo" data-desc="20x20 cm, acrylic, marker + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">20x20 cm</span>
+<img  src="art/ocwe0071.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#71 - fomo">
+</div>
+
+<!-- 70 -->
+<div class="thumb" data-tag="20" data-title="#70 - bad pup" data-desc="20x20 cm, acrylic, marker + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">20x20 cm</span>
+<img  src="art/ocwe0070.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#70 - bad pup">
+</div>
+
+<!-- 69 -->
+<div class="thumb" data-tag="2040" data-title="#69 - friend" data-desc="20x40cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">20x40 cm</span>
+<img  src="art/ocwe0069.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#69 - friend">
+</div>
+
+<!-- 68 -->
+<div class="thumb" data-tag="3040" data-title="#68 - find steve!" data-desc="30x40 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">30x40 cm</span>
+<img  src="art/ocwe0068.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#68 - find steve!">
+</div>
+
+<!-- 67 -->
+<div class="thumb" data-tag="3040" data-title="#67 - sus corp" data-desc="30x40 cm, acrylic + fuse beads (glow in the dark) on panel" onclick="openModal(this)">
+<span class="tag">30x40 cm</span>
+<img  src="art/ocwe0067.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#67 - sus corp">
+</div>
+
+<!-- 66 -->
+<div class="thumb" data-tag="4030" data-title="#66 - only forward" data-desc="40x30 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">40x30 cm</span>
+<img  src="art/ocwe0066.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#66 - only forward">
+</div>
+
+<!-- 65 -->
+<div class="thumb" data-tag="10" data-title="#65 - twosixism" data-desc="10x10 cm, acrylic + fuse beads (glow in the dark) on panel" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">10x10 cm</span>
+<img  src="art/ocwe0065.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#65 - twosixism">
+</div>
+
+<!-- 64 -->
+<div class="thumb" data-tag="2040" data-title="#64 - tick tock block" data-desc="20x40cm, acrylic w/ glitter + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">20x40 cm</span>
+<img  src="art/ocwe0064.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#64 - tick tock block">
+</div>
+
+<!-- 63 -->
+<div class="thumb" data-tag="3050" data-title="#63 - you're in charge" data-desc="30x50 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">30x50 cm</span>
+<img  src="art/ocwe0063.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#63 - you&apos;re in charge">
+</div>
+
+<!-- 62 -->
+<div class="thumb" data-tag="3030" data-title="#62 - spray the rainbow" data-desc="30x30 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">30x30 cm</span>
+<img  src="art/ocwe0062.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#62 - spray the rainbow">
+</div>
+
+<!-- 61 -->
+<div class="thumb" data-tag="1824" data-title="#61 - i love your smile" data-desc="18x24cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">18x24 cm</span>
+<img  src="art/ocwe0061.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#61 - i love your smile">
+</div>
+
+<!-- 60 -->
+<div class="thumb" data-tag="3015" data-title="#60 - not rickroll" data-desc="30x15 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">30x15 cm</span>
+<img  src="art/ocwe0060.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#60 - not rickroll">
+</div>
+
+<!-- 59 -->
+<div class="thumb" data-tag="15" data-title="#59 - clank clank" data-desc="15x15 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">15x15 cm</span>
+<img  src="art/ocwe0059.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#59 - clank clank">
+</div>
+
+<!-- 58 -->
+<div class="thumb" data-tag="15" data-title="#58 - m.k." data-desc="15x15 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">STOLEN</span><span class="tag">15x15 cm</span>
+<img  src="art/ocwe0058.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#58 - m.k.">
+</div>
+
+<!-- 57 -->
+<div class="thumb" data-tag="15" data-title="#57 - feeding time" data-desc="15x15 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">15x15 cm</span>
+<img  src="art/ocwe0057.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#57 - feeding time">
+</div>
+
+<!-- 56 -->
+<div class="thumb" data-tag="15" data-title="#56 - haiyaaah" data-desc="15x15 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">15x15 cm</span>
+<img  src="art/ocwe0056.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#56 - haiyaaah">
+</div>
+
+<!-- 55 -->
+<div class="thumb" data-tag="1824" data-title="#55 - mener leser" data-desc="18x24cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">18x24 cm</span>
+<img  src="art/ocwe0055.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#55 - mener leser">
+</div>
+
+<!-- 54 -->
+<div class="thumb" data-tag="3030" data-title="#54 - bpny" data-desc="30x30 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">30x30 cm</span>
+<img  src="art/ocwe0054.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#54 - bpny">
+</div>
+
+<!-- 53 -->
+<div class="thumb" data-tag="o30" data-title="#53 - so pretty" data-desc="⌀ 30cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">⌀30 cm</span>
+<img  src="art/ocwe0053.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#53 - so pretty">
+</div>
+
+<!-- 52 -->
+<div class="thumb" data-tag="3050" data-title="#52 - vas & varázs" data-desc="30x50 cm, acrylic, fuse beads + glitter on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">30x50 cm</span>
+<img  src="art/ocwe0052.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#52 - vas &amp; varázs">
+</div>
+
+<!-- 51 -->
+<div class="thumb" data-tag="3015" data-title="#51 - watch the head!" data-desc="30x15 cm, acrylic (glow in the dark) + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">30x15 cm</span>
+<img  src="art/ocwe0051.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#51 - watch the head!">
+</div>
+
+<!-- 50 -->
+<div class="thumb" data-tag="3040" data-title="#50 - a-holes" data-desc="30x40 cm, acrylic + fuse beads (glow in the dark) on canvas" onclick="openModal(this)">
+<span class="tag">30x40 cm</span>
+<img  src="art/ocwe0050.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#50 - a-holes">
+</div>
+
+
+<!-- 49 -->
+<div class="thumb" data-tag="15" data-title="#49 - get f'd" data-desc="15x15 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">15x15 cm</span>
+<img  src="art/ocwe0049.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#49 - get f&apos;d">
+</div>
+
+
+<!-- 48 -->
+<div class="thumb" data-tag="1530" data-title="#48 - no access" data-desc="15x30 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">15x30 cm</span>
+<img  src="art/ocwe0048.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#48 - no access">
+</div>
+
+<!-- 47 -->
+<div class="thumb" data-tag="3015" data-title="#47 - exit" data-desc="30x15 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">30x15 cm</span>
+<img  src="art/ocwe0047.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#47 - exit">
+</div>
+
+<!-- 46 -->
+<div class="thumb" data-tag="3040" data-title="#46 - please go home" data-desc="30x40 cm, acrylic, glitter + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">30x40 cm</span>
+<img  src="art/ocwe0046.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#46 - please go home">
+</div>
+
+<!-- 45 -->
+<div class="thumb" data-tag="10" data-title="#45 - city boi" data-desc="10x10 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0045.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#45 - city boi">
+</div>
+
+<!-- 44 -->
+<div class="thumb" data-tag="10" data-title="#44 - no questions" data-desc="10x10 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0044.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#44 - no questions">
+</div>
+
+<!-- 43 -->
+<div class="thumb" data-tag="10" data-title="#43 - pantry" data-desc="10x10 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0043.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#43 - pantry">
+</div>
+
+<!-- 42 -->
+<div class="thumb" data-tag="10" data-title="#42 - sausage backwards" data-desc="10x10 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0042.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#42 - sausage backwards">
+</div>
+
+<!-- 41 -->
+<div class="thumb" data-tag="10" data-title="#41 - eror jr." data-desc="10x10 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0041.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#41 - eror jr.">
+</div>
+
+<!-- 40 -->
+<div class="thumb" data-tag="20" data-title="#40 - bee" data-desc="20x20 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">20x20 cm</span>
+<img  src="art/ocwe0040.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#40 - bee">
+</div>
+
+<!-- 39 -->
+<div class="thumb" data-tag="20" data-title="#39 - dj appreciation" data-desc="20x20 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">20x20 cm</span>
+<img  src="art/ocwe0039.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#39 - dj appreciation">
+</div>
+
+<!-- 38 -->
+<div class="thumb" data-tag="20" data-title="#38 - solution" data-desc="20x20 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">20x20 cm</span>
+<img  src="art/ocwe0038.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#38 - solution">
+</div>
+
+<!-- 37 -->
+<div class="thumb" data-tag="3015" data-title="#37 - massively unimpressed – Deep Frame" data-desc="30x15 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">30x15 cm</span>
+<img  src="art/ocwe0037.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#37 - massively unimpressed – Deep Frame">
+</div>
+
+<!-- 36 -->
+<div class="thumb" data-tag="1530" data-title="#36 - 厕所" data-desc="15x30 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">15x30 cm</span>
+<img  src="art/ocwe0036.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#36 - 厕所">
+</div>
+
+<!-- 35 -->
+<div class="thumb" data-tag="15" data-title="#35 - pacitalism" data-desc="15x15 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">15x15 cm</span>
+<img  src="art/ocwe0035.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#35 - pacitalism">
+</div>
+
+<!-- 34 -->
+<div class="thumb" data-tag="10" data-title="#34 - cats amirite?" data-desc="10x10 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">10x10cm</span>
+<img  src="art/ocwe0034.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#34 - cats amirite?">
+</div>
+
+<!-- 33 -->
+<div class="thumb" data-tag="10" data-title="#33 - so edgy" data-desc="10x10 cm, acrylic with glow in the dark paint and glitter + fuse beads on panel" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">10x10cm</span>
+<img  src="art/ocwe0033.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#33 - so edgy">
+</div>
+
+<!-- 32 -->
+<div class="thumb" data-tag="10" data-title="#32 - balzac jr." data-desc="10x10 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0032.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#32 - balzac jr.">
+</div>
+
+<!-- 31 -->
+<div class="thumb" data-tag="10" data-title="#31 - shoot" data-desc="10x10 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0031.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#31 - shoot">
+</div>
+
+<!-- 30 -->
+<div class="thumb" data-tag="10" data-title="#30 - air" data-desc="10x10 cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0030.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#30 - air">
+</div>
+
+<!-- 29 -->
+<div class="thumb" data-tag="15" data-title="#29 - göd" data-desc="15x15 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">15x15 cm</span>
+<img  src="art/ocwe0029.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#29 - göd">
+</div>
+
+<!-- 28 -->
+<div class="thumb" data-tag="15" data-title="#28 - dad?" data-desc="15x15 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">15x15 cm</span>
+<img  src="art/ocwe0028.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#28 - dad?">
+</div>
+
+<!-- 27 -->
+<div class="thumb" data-tag="15" data-title="#27 - waiting is cool" data-desc="15x15 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">15x15 cm</span>
+<img  src="art/ocwe0027.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#27 - waiting is cool">
+</div>
+
+<!-- 26 -->
+<div class="thumb" data-tag="15" data-title="#26 - omg kanagawa" data-desc="15x15 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">15x15 cm</span>
+<img  src="art/ocwe0026.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#26 - omg kanagawa">
+</div>
+
+<!-- 25 -->
+<div class="thumb" data-tag="15" data-title="#25 - angry sun" data-desc="15x15 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">15x15 cm</span>
+<img  src="art/ocwe0025.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#25 - angry sun">
+</div>
+
+<!-- 24 -->
+<div class="thumb" data-tag="4030" data-title="#24 - sic transit gloria mundi" data-desc="40x30 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">40x30 cm</span>
+<img  src="art/ocwe0024.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#24 - sic transit gloria mundi">
+</div>
+
+<!-- 23 -->
+<div class="thumb" data-tag="o30" data-title="#23 - tribefellaz" data-desc="⌀ 30cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">⌀30 cm</span>
+<img  src="art/ocwe0023.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#23 - tribefellaz">
+</div>
+
+<!-- 22 -->
+<div class="thumb" data-tag="10" data-title="#22 - spaceloft" data-desc="10x10 cm, acrylic, glitter + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">10x10 cm</span>
+<img  src="art/ocwe0022.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#22 - spaceloft">
+</div>
+
+<!-- 21 -->
+<div class="thumb" data-tag="10" data-title="#21 - in the beninging" data-desc="10x10 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">10x10 cm</span>
+<img  src="art/ocwe0021.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#21 - in the beninging">
+</div>
+
+<!-- 20 -->
+<div class="thumb" data-tag="15" data-title="#20 - excite" data-desc="SOLD! 15x15 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">15x15 cm</span>
+<img  src="art/ocwe0020.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#20 - excite">
+</div>
+
+<!-- 19 -->
+<div class="thumb" data-tag="15" data-title="#19 - llama" data-desc="SOLD! 15x15 cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">15x15 cm</span>
+<img  src="art/ocwe0019.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#19 - llama">
+</div>
+
+<!-- 18 -->
+<div class="thumb" data-tag="o30" data-title="#18 - bo0bsplosion" data-desc="⌀ 30cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">⌀30 cm</span>
+<img  src="art/ocwe0018.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#18 - bo0bsplosion">
+</div>
+
+<!-- 17 -->
+<div class="thumb" data-tag="15" data-title="#17 - 3 cats" data-desc="SOLD! 15x15cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">15x15 cm</span>
+<img  src="art/ocwe0017.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#17 - 3 cats">
+</div>
+
+<!-- 16 -->
+<div class="thumb" data-tag="1824" data-title="#16 - skifree" data-desc="18x24cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">18x24 cm</span>
+<img  src="art/ocwe0016.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#16 - skifree">
+</div>
+
+<!-- 15 -->
+<div class="thumb" data-tag="1824" data-title="#15 - go now" data-desc="18x24cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">18x24 cm</span>
+<img  src="art/ocwe0015.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#15 - go now">
+</div>
+
+<!-- 14 -->
+<div class="thumb" data-tag="1824" data-title="#14 - laika" data-desc="18x24cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">18x24 cm</span>
+<img  src="art/ocwe0014.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#14 - laika">
+</div>
+
+<!-- 13 -->
+<div class="thumb" data-tag="10" data-title="#13 - pew" data-desc="SOLD! 10x10cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">10x10cm</span>
+<img  src="art/ocwe0013.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#13 - pew">
+</div>
+
+<!-- 12 -->
+<div class="thumb" data-tag="10" data-title="#12 - workers' bathroom" data-desc="10x10cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0012.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#12 - workers&apos; bathroom">
+</div>
+
+<!-- 11 -->
+<div class="thumb" data-tag="10" data-title="#11 - less" data-desc="10x10cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0011.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#11 - less">
+</div>
+
+<!-- 10 -->
+<div class="thumb" data-tag="10" data-title="#10 - the hipsterminator" data-desc="10x10cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="tag">10x10cm</span>
+<img  src="art/ocwe0010.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#10 - the hipsterminator">
+</div>
+
+<!-- 9 -->
+<div class="thumb" data-tag="10" data-title="#9 - dayum" data-desc="10x10cm, acrylic + fuse beads on panel" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">10x10cm</span>
+<img  src="art/ocwe0009.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#9 - dayum">
+</div>
+
+<!-- 8 -->
+<div class="thumb" data-tag="15" data-title="#8 - smell" data-desc="15x15cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">15x15 cm</span>
+<img  src="art/ocwe0008.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#8 - smell">
+</div>
+
+<!-- 7 -->
+<div class="thumb" data-tag="15" data-title="#7 - balzac" data-desc="SOLD! 15x15cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">15x15 cm</span>
+<img  src="art/ocwe0007.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#7 - balzac">
+</div>
+
+<!-- 6 -->
+<div class="thumb" data-tag="15" data-title="#6 - wsl" data-desc="SOLD! 15x15cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">15x15 cm</span>
+<img  src="art/ocwe0006.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#6 - wsl">
+</div>
+
+<!-- 5 -->
+<div class="thumb" data-tag="15" data-title="#5 - helo" data-desc="15x15cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">15x15 cm</span>
+<img  src="art/ocwe0005.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#5 - helo">
+</div>
+
+<!-- 4 -->
+<div class="thumb" data-tag="15" data-title="#4 – denied" data-desc="15x15cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">15x15 cm</span>
+<img  src="art/ocwe0004.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#4 – denied">
+</div>
+
+<!-- 3 -->
+<div class="thumb" data-tag="15" data-title="#03 - hawk tuah" data-desc="SOLD! 15x15cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">15x15 cm</span>
+<img  src="art/ocwe0003.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#03 - hawk tuah">
+</div>
+
+<!-- 2 -->
+<div class="thumb" data-tag="15" data-title="#2 - eror" data-desc="SOLD! 15x15cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="badge">SOLD</span><span class="tag">15x15 cm</span>
+<img  src="art/ocwe0002.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#2 - eror">
+</div>
+
+<!-- 1 -->
+<div class="thumb" data-tag="15" data-title="#1 – errm what" data-desc="15x15cm, acrylic + fuse beads on canvas" onclick="openModal(this)">
+<span class="tag">15x15 cm</span>
+<img  src="art/ocwe0001.jpg" loading="lazy" width="2252" height="2252" decoding="async" alt="#1 – errm what">
+</div>
+
+</div>
+</main>
+
+<section class="contact-block" aria-label="Contact and social links">
+  <a href="mailto:okaycoolwowetc@gmail.com" class="contact-main">CONTACT ME</a>
+  <div class="socials">
+    <a href="https://www.instagram.com/okaycoolwowetc/" target="_blank" aria-label="Instagram" rel="noopener noreferrer"><img  src="social/insta.png" alt="Instagram" width="36" height="36" decoding="async"><span>Instagram</span></a>
+    <a href="https://www.facebook.com/okaycoolwowetc" target="_blank" aria-label="Facebook" rel="noopener noreferrer"><img  src="social/fb.png" alt="Facebook" width="36" height="36" decoding="async"><span>Facebook</span></a>
+    <a href="https://bsky.app/profile/okaycoolwowetc.com" target="_blank" aria-label="Bluesky" rel="noopener noreferrer"><img  src="social/bsky.png" alt="Bluesky" width="36" height="36" decoding="async"><span>Bluesky</span></a>
+    <a href="https://ko-fi.com/okaycoolwowetc" target="_blank" aria-label="Ko-Fi" rel="noopener noreferrer"><img  src="social/kofi.png" alt="Ko-Fi" width="36" height="36" decoding="async"><span>Ko-Fi</span></a>
+  </div>
+</section>
+<footer>© OCWE - All rights reserved</footer>
+<div class="modal" id="modal" onclick="closeModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" type="button" onclick="closeModal(event)" aria-label="Close">close</button>
+    <div class="modal-art" id="modal-art">
+      <button class="modal-nav prev" type="button" aria-label="Previous artwork" onclick="event.stopPropagation(); navigateModal(-1);">
+        <svg viewBox="0 0 64 220" aria-hidden="true" focusable="false">
+          <polyline points="44 18 18 110 44 202"></polyline>
+        </svg>
+      </button>
+      <img id="modal-img" alt="Selected artwork">
+      <button class="modal-nav next" type="button" aria-label="Next artwork" onclick="event.stopPropagation(); navigateModal(1);">
+        <svg viewBox="0 0 64 220" aria-hidden="true" focusable="false">
+          <polyline points="20 18 46 110 20 202"></polyline>
+        </svg>
+      </button>
+    </div>
+    <div class="modal-text">
+      <h2 id="modal-title"></h2>
+      <p id="modal-desc"></p>
+      <a href="mailto:okaycoolwowetc@gmail.com">CONTACT ME</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const buttons = document.querySelectorAll('.filter-btn');
+const thumbs = document.querySelectorAll('.thumb');
+const count = document.querySelector('.filter-count');
+let modalItems = [];
+let modalIndex = -1;
+
+function normalizedDesc(el) {
+  return (el.dataset.desc || '').toLowerCase().replace(/\s+/g, '');
+}
+
+function sizeNeedle(code) {
+  if (code === 'o30' || code === 'fan') return code;
+  if (code.length === 2) return code + 'x' + code;
+  return code.slice(0, 2) + 'x' + code.slice(2);
+}
+
+function matchesFilter(el, filter) {
+  if (filter === 'all') return true;
+  const tags = filter.split(',');
+  const tag = el.dataset.tag;
+  const desc = normalizedDesc(el);
+  return tags.some(item => tag === item || desc.includes(sizeNeedle(item)) || (item === 'fan' && desc.includes('fan')));
+}
+
+function filterGallery(filter) {
+  let visible = 0;
+  thumbs.forEach(el => {
+    const show = matchesFilter(el, filter);
+    el.hidden = !show;
+    if (show) visible += 1;
+  });
+  if (count) count.textContent = visible + (visible === 1 ? ' piece' : ' pieces');
+}
+
+function visibleThumbs() {
+  return [...thumbs].filter(el => !el.hidden && getComputedStyle(el).display !== 'none');
+}
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const nextFilter = button.classList.contains('active') && button.dataset.filter !== 'all'
+      ? 'all'
+      : button.dataset.filter;
+    buttons.forEach(item => item.classList.remove('active'));
+    const activeButton = document.querySelector(`.filter-btn[data-filter="${nextFilter}"]`);
+    if (activeButton) activeButton.classList.add('active');
+    filterGallery(nextFilter);
+  });
+});
+
+function openModal(el) {
+  const modal = document.getElementById('modal');
+  modalItems = visibleThumbs();
+  modalIndex = modalItems.indexOf(el);
+  if (modalIndex < 0) {
+    modalItems = [el];
+    modalIndex = 0;
+  }
+  setModalContent(modalItems[modalIndex]);
+  modal.style.display = 'flex';
+  document.body.classList.add('modal-open');
+}
+
+function setModalContent(el) {
+  document.getElementById('modal-img').src = el.querySelector('img').src;
+  document.getElementById('modal-title').textContent = el.dataset.title;
+  document.getElementById('modal-desc').textContent = el.dataset.desc;
+  const hideNav = modalItems.length < 2;
+  document.querySelectorAll('.modal-nav').forEach(button => {
+    button.hidden = hideNav;
+  });
+}
+
+function navigateModal(direction) {
+  if (!modalItems.length) return;
+  modalIndex = (modalIndex + direction + modalItems.length) % modalItems.length;
+  setModalContent(modalItems[modalIndex]);
+}
+
+function closeModal(e) {
+  if (!e || e.target.id === 'modal' || e.target.classList.contains('modal-close')) {
+    document.getElementById('modal').style.display = 'none';
+    document.body.classList.remove('modal-open');
+    modalItems = [];
+    modalIndex = -1;
+  }
+}
+
+document.addEventListener('keydown', e => {
+  const modalOpen = document.getElementById('modal').style.display === 'flex';
+  if (e.key === 'Escape') closeModal();
+  if (!modalOpen) return;
+  if (e.key === 'ArrowLeft') {
+    e.preventDefault();
+    navigateModal(-1);
+  }
+  if (e.key === 'ArrowRight') {
+    e.preventDefault();
+    navigateModal(1);
+  }
+});
+
+document.getElementById('modal-art').addEventListener('click', e => {
+  const touchLike = window.matchMedia('(hover: none), (pointer: coarse)').matches || window.innerWidth <= 860;
+  if (!touchLike || e.target.closest('.modal-nav')) return;
+  const box = e.currentTarget.getBoundingClientRect();
+  const direction = e.clientX < box.left + box.width / 2 ? -1 : 1;
+  navigateModal(direction);
+});
+
+filterGallery('all');
+</script>
+</body>
+</html>
+

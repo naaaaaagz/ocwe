@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://okaycoolwowetc.com/sitemap.xml

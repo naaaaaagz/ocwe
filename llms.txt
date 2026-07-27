@@ -1,0 +1,25 @@
+# OkayCoolWowEtc
+
+> OkayCoolWowEtc is the portfolio site of a Budapest, Hungary based mixed media artist creating original acrylic paintings with fuse bead elements.
+
+This site is a single-page visual portfolio and gallery. It presents original mixed media artworks, exhibition information, contact links, and social profiles. Artwork data in the HTML page is the source of truth for titles, dimensions, materials, and status labels such as sold or stolen.
+
+For purchase inquiries, commissions, availability, press, exhibition questions, or permission requests, contact the artist directly by email.
+
+## Primary Pages
+
+- [Homepage and gallery](https://okaycoolwowetc.com/): Main portfolio page with artwork grid, filters, exhibition details, contact link, and social links.
+- [Machine-readable page summary](https://okaycoolwowetc.com/index.html.md): Markdown summary of the public website for agents and language models.
+
+## Contact And Social Links
+
+- [Email](mailto:okaycoolwowetc@gmail.com): Preferred contact for artwork inquiries, commissions, availability, and exhibition questions.
+- [Instagram](https://www.instagram.com/okaycoolwowetc/): Current artwork posts and visual updates.
+- [Facebook](https://www.facebook.com/okaycoolwowetc): Social profile and updates.
+- [Bluesky](https://bsky.app/profile/okaycoolwowetc.com): Social profile.
+- [Ko-fi](https://ko-fi.com/okaycoolwowetc): Support link.
+
+## Optional
+
+- [Sitemap](https://okaycoolwowetc.com/sitemap.xml): Search engine sitemap for the site.
+- [Robots policy](https://okaycoolwowetc.com/robots.txt): Crawling policy for automated agents.
