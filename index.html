@@ -67,6 +67,8 @@ img { max-width: 100%; }
 .socials a { min-height: 52px; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-weight: 900; font-size: .9rem; }
 .socials img { width: 23px; height: 23px; object-fit: contain; }
 footer { padding: 20px 20px 18px; text-align: center; font-size: .72rem; }
+footer a { color: rgba(244,238,226,.52); text-decoration: none; transition: color .18s ease; }
+footer a:hover, footer a:focus-visible { color: rgba(244,238,226,.82); }
 .modal { display: none; position: fixed; inset: 0; z-index: 1000; align-items: center; justify-content: center; padding: 22px; background: rgba(9,8,7,.68); backdrop-filter: blur(14px); }
 .modal-content { position: relative; width: auto; max-width: 96vw; max-height: 92vh; display: grid; grid-template-columns: auto minmax(280px, 380px); gap: 0; overflow: visible; padding: 0; align-items: stretch; }
 .modal-art { position: relative; display: flex; align-items: stretch; justify-content: flex-end; min-height: 0; padding: 0; }
@@ -1674,7 +1676,7 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
     <a href="https://ko-fi.com/okaycoolwowetc" target="_blank" aria-label="Ko-Fi" rel="noopener noreferrer"><img src="social/kofi.png" alt="Ko-Fi" width="36" height="36" decoding="async"><span>Ko-Fi</span></a>
   </div>
 </section>
-<footer>© OCWE - All rights reserved</footer>
+<footer>© OCWE - All rights reserved :: powered by <a href="https://nagz.space" target="_blank" rel="noopener noreferrer">nagz.space</a></footer>
 <div class="modal" id="modal" onclick="closeModal(event)">
   <div class="modal-content">
     <button class="modal-close" type="button" onclick="closeModal(event)" aria-label="Close">close</button>
