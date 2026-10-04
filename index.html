@@ -49,6 +49,7 @@ img { max-width: 100%; }
 .filter-line { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
 .filter-count { white-space: nowrap; font-size: .78rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
 .filters { display: flex; flex-wrap: wrap; gap: 9px; }
+.filters[hidden] { display: none; }
 .filter-btn { min-height: 38px; min-width: 64px; padding: 9px 14px; border: 0; cursor: pointer; font-size: .82rem; font-weight: 800; transition: transform .16s ease, background .16s ease, color .16s ease, border-color .16s ease; }
 .filter-btn[data-filter="all"] { font-weight: 1000; min-width: 76px; }
 .filter-btn:hover { transform: translateY(-1px); }
@@ -153,7 +154,8 @@ body.signal-wall { color: #f4eee2; background: #100d12; }
 </section>
 <section class="filter-panel" aria-label="Artwork filters">
   <div class="filter-line"><span class="filter-count">114 pieces</span></div>
-  <div class="filters">
+  <!-- Remove hidden below to restore the artwork selectors. ALL remains the default. -->
+  <div class="filters" hidden>
       <button class="filter-btn active" type="button" data-filter="all">ALL</button>
       <button class="filter-btn" type="button" data-filter="7025">70x25</button>
       <button class="filter-btn" type="button" data-filter="2570">25x70</button>
